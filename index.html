@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Playground — Run SQL, JavaScript, TypeScript and HTML/CSS in Your Browser</title>
+    <meta
+      name="description"
+      content="A free online playground for SQL, JavaScript, TypeScript and full HTML/CSS/JS apps. Runs entirely in your browser — no signup, no server, nothing uploaded. Works offline."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://playground.dplooy.com/" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Playground" />
+    <meta
+      property="og:title"
+      content="Playground — Run SQL, JavaScript, TypeScript and HTML/CSS in Your Browser"
+    />
+    <meta
+      property="og:description"
+      content="Free online playground for SQL, JavaScript, TypeScript and full web apps. No signup, no server, nothing uploaded."
+    />
+    <meta property="og:url" content="https://playground.dplooy.com/" />
+    <meta property="og:image" content="https://playground.dplooy.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Playground — Run SQL, JavaScript, TypeScript and HTML/CSS in Your Browser"
+    />
+    <meta
+      name="twitter:description"
+      content="Free online playground for SQL, JavaScript, TypeScript and full web apps. Nothing is uploaded."
+    />
+    <meta name="twitter:image" content="https://playground.dplooy.com/og.png" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <style>
+      /* Every load starts on the landing, which is white. The playground view
+         paints its own page colour from index.css once it mounts. */
+      html {
+        background: #ffffff;
+      }
+    </style>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Playground",
+        "description": "Free browser-based playground for SQL, JavaScript, TypeScript and HTML/CSS/JS. Code runs locally and is never uploaded.",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "url": "https://playground.dplooy.com/",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Playground free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Completely. No paid tier, no trial, no feature gates, no ads. There is no server to pay for, which is what makes that sustainable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a signup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. There are no accounts, no email capture, and nothing to dismiss. Open the page and start typing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my code uploaded anywhere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Playground is a static bundle of HTML, JavaScript and CSS with no backend. After it loads it makes no requests. Your projects live in your browser's own database."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the SQL real SQLite?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — real SQLite compiled to WebAssembly, not a subset or an emulation. If a query works here, it works in SQLite."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use my own data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Drop in a CSV or JSON file and it becomes a queryable table with inferred column types, or open an existing .sqlite database from disk. You can download the database back out at any time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it work offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. After the first visit everything runs locally, with no network connection at all."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
