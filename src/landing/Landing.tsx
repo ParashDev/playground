@@ -1,18 +1,24 @@
 import type { ReactNode } from "react";
 import {
   ArrowRight,
+  Boxes,
   Check,
+  ClipboardCheck,
   Database,
   FileCode2,
   FileDown,
+  FileSearch,
+  GraduationCap,
   Layers,
   Minus,
   MonitorPlay,
   Play,
+  Presentation,
   ShieldCheck,
   Table2,
   Terminal,
   WifiOff,
+  Zap,
 } from "lucide-react";
 
 export interface LandingProps {
@@ -273,6 +279,39 @@ const FEATURES = [
   },
 ];
 
+const USE_CASES = [
+  {
+    icon: GraduationCap,
+    title: "Learning SQL",
+    body: "A database is already loaded, so there is nothing to install or set up before your first query. Click a table to see its rows, then start changing the query — joins and window functions behave exactly as they will on a real database.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Interview prep",
+    body: "Practise the query patterns that actually come up — ranking within a group, running totals, finding duplicates — against real data rather than reading answers. Save each attempt as its own file and come back to it.",
+  },
+  {
+    icon: Zap,
+    title: "Testing a snippet",
+    body: "Somewhere to check what a reduce actually returns, or whether that regex matches, without spinning up a project or polluting a real one. Faster than a scratch file, and it is still there tomorrow.",
+  },
+  {
+    icon: Presentation,
+    title: "Teaching and demos",
+    body: "Nothing to install on a classroom machine and no accounts to create for a room full of people. Every student opens the same page and gets the same database, on whatever hardware they brought.",
+  },
+  {
+    icon: Boxes,
+    title: "Prototyping a page",
+    body: "Sketch a layout or a component in HTML, CSS and JavaScript and see it render beside the editor. When it works, download the files and drop them into the real project.",
+  },
+  {
+    icon: FileSearch,
+    title: "Poking at a CSV",
+    body: "Drop in an export and query it with SQL instead of fighting a spreadsheet. It never leaves your machine, which matters when the export has real customer data in it.",
+  },
+];
+
 const THEM = [
   "Your code is uploaded to their servers",
   "Rate limits, queues and cold starts",
@@ -338,6 +377,7 @@ export default function Landing({ onOpen }: LandingProps) {
               {[
                 ["Modes", "#modes"],
                 ["Features", "#features"],
+                ["Use cases", "#use-cases"],
                 ["Privacy", "#privacy"],
                 ["FAQ", "#faq"],
               ].map(([label, href]) => (
@@ -456,7 +496,32 @@ export default function Landing({ onOpen }: LandingProps) {
         </Shell>
       </section>
 
-      <section id="privacy" className="border-y border-line bg-surface py-20">
+      <section id="use-cases" className="border-y border-line bg-surface py-20">
+        <Shell>
+          <SectionHead
+            eyebrow="Who it's for"
+            title="What people actually open it for"
+            lede="No install, no account and no upload turns out to matter most when you are teaching, interviewing, or holding data you would rather not hand to a stranger."
+          />
+
+          <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {USE_CASES.map(({ icon: Icon, title, body }) => (
+              <article
+                key={title}
+                className="rounded-xl border border-line bg-canvas p-6 transition hover:-translate-y-0.5 hover:border-muted/40"
+              >
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10">
+                  <Icon size={17} className="text-accent" />
+                </span>
+                <h3 className="mt-4 text-[17px] font-semibold tracking-tight text-ink">{title}</h3>
+                <p className="mt-2 text-[15px]">{body}</p>
+              </article>
+            ))}
+          </div>
+        </Shell>
+      </section>
+
+      <section id="privacy" className="py-20">
         <Shell>
           <SectionHead
             eyebrow="Why it's different"
@@ -510,7 +575,7 @@ export default function Landing({ onOpen }: LandingProps) {
         </Shell>
       </section>
 
-      <section id="faq" className="py-20">
+      <section id="faq" className="border-y border-line bg-surface py-20">
         <Shell>
           <SectionHead eyebrow="Questions" title="Frequently asked" />
 
